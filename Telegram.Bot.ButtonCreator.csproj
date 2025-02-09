@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>telegram.bot.buttoncreator</PackageId>
+    <Title>Telegram.Bot.ButtonCreator</Title>
+    <Description>A useful package to be used with the Telegram.Bot package. 
+Create buttons easily.</Description>
+    <PackageProjectUrl>https://github.com/BeerlD/Telegram.Bot.ButtonCreator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/BeerlD/Telegram.Bot.ButtonCreator.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>telegram, bot</PackageTags>
+    <PackageReleaseNotes>First Version</PackageReleaseNotes>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Telegram.Bot" Version="22.3.0" />
+  </ItemGroup>
+
+</Project>
