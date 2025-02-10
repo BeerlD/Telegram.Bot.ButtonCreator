@@ -2,10 +2,24 @@
 
 namespace Telegram.Bot.ButtonCreator
 {
+    public enum ButtonType
+    {
+        Normal,
+        Link
+    }
+
     public class ButtonCreator
     {
-        private List<List<InlineKeyboardButton>> Buttons = new List<List<InlineKeyboardButton>>();
+        private List<List<InlineKeyboardButton>> Buttons = new List<List<InlineKeyboardButton>>() { new List<InlineKeyboardButton>() };
         private int lineIndex = 0;
+
+        public class ButtonData
+        {
+            public ButtonType? Type { get; set; }
+            public string? Url { get; set; }
+            public string? Id { get; set; }
+        }
+
 
         public void CreateNewLine()
         {
@@ -13,9 +27,13 @@ namespace Telegram.Bot.ButtonCreator
             lineIndex += 1;
         }
 
-        public void AddButton(string title, string id)
+        public void AddButton(string title, ButtonData? buttonData)
         {
-            Buttons[lineIndex].Add(InlineKeyboardButton.WithCallbackData(title, id));
+            if (buttonData is null || buttonData.Type == ButtonType.Normal)
+                Buttons[lineIndex].Add(InlineKeyboardButton.WithCallbackData(title, buttonData.Id));
+
+            if (buttonData.Type == ButtonType.Link)
+                Buttons[lineIndex].Add(InlineKeyboardButton.WithUrl(title, buttonData.Url));
         }
 
         public InlineKeyboardMarkup GetLayout()

@@ -15,10 +15,15 @@ Create buttons easily.</Description>
     <PackageTags>telegram, bot</PackageTags>
     <PackageReleaseNotes>First Version</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Telegram.Bot" Version="22.3.0" />
+    <Content Include="README.md">
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
   </ItemGroup>
 
 </Project>
