@@ -29,21 +29,21 @@ ButtonCreator Buttons = new();
 ### Adding Buttons
 
 #### Normal Button (with CallbackData)
-> ![Button Normal Image Example](Assets/Images/button_normal.png)
+> ![Button Normal Image Example](https://raw.githubusercontent.com/BeerlD/Telegram.Bot.ButtonCreator/refs/heads/master/Assets/Images/button_normal.png)
 
 ```csharp
 Buttons.AddButton("Click Here", new ButtonCreator.ButtonData { Id = "button1" });
 ```
 
 #### Button with Link
-> ![Button Link Image Example](Assets/Images/button_link.png)
+> ![Button Link Image Example](https://raw.githubusercontent.com/BeerlD/Telegram.Bot.ButtonCreator/refs/heads/master/Assets/Images/button_link.png)
 
 ```csharp
 Buttons.AddButton("Visit Website", new ButtonCreator.ButtonData { Type = ButtonType.Link, Url = "https://example.com" });
 ```
 
 ### Creating a New Line of Buttons
-> ![Buttons With Line Image Example](Assets/Images/buttons_with_line.png)
+> ![Buttons With Line Image Example](https://raw.githubusercontent.com/BeerlD/Telegram.Bot.ButtonCreator/refs/heads/master/Assets/Images/buttons_with_line.png)
 
 If you want to add buttons on a new line:
 
