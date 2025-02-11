@@ -10,7 +10,7 @@ namespace Telegram.Bot.ButtonCreator
 
     public class ButtonCreator
     {
-        private List<List<InlineKeyboardButton>> Buttons = new List<List<InlineKeyboardButton>>() { new List<InlineKeyboardButton>() };
+        private readonly List<List<InlineKeyboardButton>> Buttons = [[]];
         private int lineIndex = 0;
 
         public class ButtonData
@@ -23,17 +23,16 @@ namespace Telegram.Bot.ButtonCreator
 
         public void CreateNewLine()
         {
-            Buttons.Add(new List<InlineKeyboardButton>());
+            Buttons.Add([]);
             lineIndex += 1;
         }
 
         public void AddButton(string title, ButtonData? buttonData)
         {
-            if (buttonData is null || buttonData.Type == ButtonType.Normal)
-                Buttons[lineIndex].Add(InlineKeyboardButton.WithCallbackData(title, buttonData.Id));
-
-            if (buttonData.Type == ButtonType.Link)
-                Buttons[lineIndex].Add(InlineKeyboardButton.WithUrl(title, buttonData.Url));
+            if (buttonData is null || buttonData.Type is null || buttonData.Type == ButtonType.Normal)
+                Buttons[lineIndex].Add(InlineKeyboardButton.WithCallbackData(title, buttonData is not null ? (buttonData.Id ?? "") : ""));
+            else if (buttonData.Type == ButtonType.Link)
+                Buttons[lineIndex].Add(InlineKeyboardButton.WithUrl(title, buttonData.Url ?? ""));
         }
 
         public InlineKeyboardMarkup GetLayout()
